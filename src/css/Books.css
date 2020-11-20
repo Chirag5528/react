@@ -1,0 +1,23 @@
+.app__books {
+  background-color: #fff;
+  height: 100%;
+}
+.books__image {
+  width: 100%;
+  /* height: 100%; */
+  margin: 0;
+  padding: 0;
+}
+.books__image img {
+  width: 100%;
+  height: auto;
+}
+.books__heading {
+  margin: 2rem 0;
+}
+
+.books__heading,
+.books__author,
+.books__category {
+  padding: 0 2rem;
+}

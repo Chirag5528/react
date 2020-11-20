@@ -1,0 +1,9 @@
+.app__footer{
+    background-color:teal;
+    padding: 55px 20px;
+    margin:10px 0;
+}
+.app__footer h4, .app__footer p{
+    color:wheat;
+    line-height: 2.4em;
+}

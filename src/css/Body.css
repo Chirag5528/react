@@ -1,0 +1,21 @@
+.app__body {
+  padding: 55px 20px;
+}
+
+.app__body h2,
+.app__body p {
+  line-height: 2.4em;
+}
+.section__app__books {
+  width: 80vw;
+  max-width: 1200px;
+  margin: 5rem auto;
+  display: grid;
+  gap: 2em;
+}
+
+@media screen and (min-width: 768px) {
+  .section__app__books {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
