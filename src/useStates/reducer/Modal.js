@@ -10,7 +10,10 @@ const Modal = (props) => {
                 person.map( (per) => {
                     const {id,name} = per;
                     return (
-                        <h4 key={id}>{name}</h4>
+                        <ul className="bg-light">
+                            <li key={id}><p className="item"  key={id}>{name}</p></li>
+                        </ul>
+                        
                     )
                 } )
             }
