@@ -13,6 +13,7 @@ const StateArray = () => {
         });
         setPeople( newPeople );
     };
+    
 
     const addPeople = ( obj ) => {
         // const idPeople = peopleId;

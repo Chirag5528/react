@@ -5,7 +5,7 @@ import Modal from './Modal';
 const Index = () => {
 
     const [name,setName] = React.useState( '' );
-    const [people,setPeople] = React.useState( person );
+    const [people,setPeople] = React.useState( [] );
     const [showModal,setShowModal] = React.useState( false );
     const [error, setError] = React.useState(false);
     const nameRef = React.useRef(null);
@@ -44,7 +44,7 @@ const Index = () => {
                 />
                 <button className="btn" type="submit">Add Name</button>
             </form>
-            {showModal && <Modal person={people}/> }
+            {showModal && <Modal person={people} setPerson={setPeople} />  }
         </React.Fragment>
     )
 
