@@ -1,6 +1,28 @@
 import React from 'react';
-import person from '../../data/person';
 import Modal from './Modal';
+// import { Reducer } from './Reducer';
+const Reducer = ( state, action ) => {
+    console.log( action );
+    
+    if( action.type === "addItem" ){
+        
+        return {
+                ...state,
+                people:[...state.people, action.payload ],
+                showModal:true,
+                modalContent:"New Item Added"
+        };
+    }
+
+    return state;
+}
+
+const handleDefault = {
+    people: [],
+    showModal:false,
+    modalContent:"",
+    nameValue:""
+}
 
 const Index = () => {
 
@@ -10,20 +32,27 @@ const Index = () => {
     const [error, setError] = React.useState(false);
     const nameRef = React.useRef(null);
     
+    
+    const [state, dispatch] = React.useReducer( Reducer, handleDefault );
+    
+    
     const handleSubmit = (e) =>{
         e.preventDefault();
         if( name ){
-            setPeople( [...people, { id:new Date().getTime().toString(),name } ] );
-            setError(false);
-            setShowModal(true);
+
+            dispatch( { type:"addItem",payload:{ id:new Date().getTime().toString(),name } } );
             setName("");
             nameRef.current.focus();
+            
         }else{
             setError(true);
             nameRef.current.focus();
             setShowModal(false);
         }
-
+    }
+    const changeName = (value) => {
+        setName(value);
+        // dispatch( { type:"setNewName", payload:{ value } } )
     }
 
     return (
@@ -39,12 +68,12 @@ const Index = () => {
                 name="userName" 
                 className="form-control" 
                 value={name}
-                onChange = { (e) => setName(e.target.value)  }
+                onChange = { (e) => changeName(e.target.value)  }
                 ref={nameRef}
                 />
                 <button className="btn" type="submit">Add Name</button>
             </form>
-            {showModal && <Modal person={people} setPerson={setPeople} />  }
+            {state.showModal && <Modal person={state.people} setPerson={state.setPeople} />  }
         </React.Fragment>
     )
 
