@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Modal = ({ person,setPerson }) => {
+const Modal = ({ person,setPerson, removeItem }) => {
     // console.log( person );
-    const removeThisItem = (id) => {
+    /* const removeThisItem = (id) => {
         
         let newList = person.filter( (person) =>  person.id !== id );
         setPerson( newList );
-    }
+    } */
 
     return(
         <React.Fragment>
@@ -18,7 +18,7 @@ const Modal = ({ person,setPerson }) => {
                         return (
                             <li key={id} className="item">
                                     <p key={id}>{name}</p>
-                                    <button className="btn" onClick={ () => removeThisItem( id ) }>Remove</button>
+                                    <button className="btn" onClick={ () => removeItem( id ) }>Remove</button>
                             </li>
                         )
                     } )
